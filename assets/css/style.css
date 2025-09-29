@@ -687,3 +687,28 @@ ins.adsbygoogle[style*="position: fixed"][style*="bottom"][style*="height: 0"] {
 /* Safari/iOS safety: never let any fixed full-width ad create horizontal overflow */
 html, body { overflow-x: hidden !important; }
 
+/* === RUBYNEST NAVBAR TOP-GAP FIX === */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(180deg, #330000, #000000) !important; /* wine red to black */
+  height: 100% !important;
+  min-height: 100% !important;
+}
+
+/* Prevent iOS Safari "safe-area" white padding */
+body {
+  padding-top: env(safe-area-inset-top, 0) !important;
+  background-color: #000 !important; /* fallback */
+}
+
+/* Force header/nav to stick with no gap */
+header, .header, nav, .navbar, .site-header, .navwrap {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(180deg, #330000, #000000) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
