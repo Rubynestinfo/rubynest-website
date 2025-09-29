@@ -633,4 +633,38 @@ header, .header, nav, .navwrap, .site-header {
   padding-top: env(safe-area-inset-top, 0) !important;
   background: linear-gradient(180deg, #330000, #000000) !important;
 }
+/* ==== RUBYNEST: FINAL white-bar / background fix (keep at very bottom) ==== */
+html, body, #root, #__next {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  background: #120006 !important; /* matches your header theme */
+}
+
+/* Kill any leftover AdSense/auto-ads containers that can create blank space */
+body > ins,
+body > ins.adsbygoogle,
+body > iframe[style*="height"],
+ins.adsbygoogle {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Make sure the hero never forces a viewport jump on iOS */
+.hero,
+.hero img {
+  width: 100% !important;
+  height: auto !important;           /* avoid using vh here */
+}
+
+/* If you previously used 60vh on the hero image, replace with safe-size */
+@supports (height: 1svh) {
+  .hero { min-height: 60svh !important; }  /* safe viewport on iOS */
+}
 
