@@ -521,3 +521,37 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
 }
 .topic-bar.is-sticky{ position: sticky; top: clamp(60px, 9vh, 90px); z-index: 50;
 }
+/* ===== RUBYNEST FINAL WHITE-GAP + BACKGROUND FIX ===== */
+
+/* Remove white gaps globally */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow-x: hidden !important;
+  min-height: 100vh;
+  -webkit-text-size-adjust: 100%;
+  background: #000 !important; /* fallback */
+  background: linear-gradient(180deg, #330000, #000000) !important; /* wine red to black */
+}
+
+/* Header / Navbar strip fix */
+header, .header, nav, nav.navbar, .site-header, .navwrap {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: linear-gradient(180deg, #330000, #000000) !important;
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+/* Hero / Banner fix (no padding/margin, full width) */
+.hero, .hero.white, .hero .overlay, .hero .inner {
+  margin: 0 !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.hero img {
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+}
