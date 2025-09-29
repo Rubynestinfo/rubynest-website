@@ -602,4 +602,20 @@ footer,
   height: auto !important;
   object-fit: cover;
 }
+/* TEMP: kill AdSense placeholders that reserve space */
+ins.adsbygoogle,
+ins.adsbygoogle * {
+  display: none !important;
+  height: 0 !important;
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+iframe[id^="google_ads_iframe"],
+div[id^="google_ads_iframe_"] {
+  display: none !important;
+  height: 0 !important;
+}
 
