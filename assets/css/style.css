@@ -667,4 +667,23 @@ ins.adsbygoogle {
 @supports (height: 1svh) {
   .hero { min-height: 60svh !important; }  /* safe viewport on iOS */
 }
+/* Hide empty/zero-height anchor/vignette shells injected by Auto-ads */
+ins.adsbygoogle[style*="position: fixed"][style*="bottom"] {
+  /* when anchor container is injected but not yet filled */
+  min-height: 0 !important;
+  height: auto !important;
+}
+
+/* if Google leaves a zero-height or unfilled anchor, make sure it doesn't reserve space */
+ins.adsbygoogle[style*="position: fixed"][style*="bottom"]:empty,
+ins.adsbygoogle[style*="position: fixed"][style*="bottom"][style*="height: 0"] {
+  display: none !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Safari/iOS safety: never let any fixed full-width ad create horizontal overflow */
+html, body { overflow-x: hidden !important; }
 
