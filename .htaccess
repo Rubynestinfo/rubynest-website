@@ -1,0 +1,4 @@
+
+# Enable correct MIME types for video
+AddType video/webm .webm
+AddType video/mp4  .mp4
