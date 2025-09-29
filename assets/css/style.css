@@ -618,4 +618,19 @@ div[id^="google_ads_iframe_"] {
   display: none !important;
   height: 0 !important;
 }
+/* === Fix top white gap on iOS Safari/Chrome === */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: #000; /* fallback */
+  background: linear-gradient(180deg, #330000, #000000) !important;
+  height: 100%;
+}
+
+/* Navbar/Header flush with top edge */
+header, .header, nav, .navwrap, .site-header {
+  margin-top: 0 !important;
+  padding-top: env(safe-area-inset-top, 0) !important;
+  background: linear-gradient(180deg, #330000, #000000) !important;
+}
 
