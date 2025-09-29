@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rubynest.ca/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/company.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/services.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/expertise.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/projects.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/inspiration.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/contact.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/get-quote.html</loc>
+  </url>
+  <url>
+    <loc>https://rubynest.ca/careers.html</loc>
+  </url>
+</urlset>
