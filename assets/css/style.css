@@ -644,3 +644,15 @@ body::after{
   /* Prevent background scroll when menu is open (if you use body class) */
   body.menu-open { height: 100%; overflow: hidden; }
 }
+/* --- Minimal hot-fix, safe to keep --- */
+
+/* Keep header/hamburger above hero so taps work on iOS */
+.header, .site-header, .navwrap { z-index: 10010 !important; position: relative; }
+.hero .overlay { pointer-events: none !important; }  /* overlay no longer steals taps */
+
+/* Hide Google anchor (white bar) if it gets injected at the bottom */
+ins.adsbygoogle[data-anchor-shown="true"],
+.google-auto-placed[style*="position: fixed"][style*="bottom"] {
+  display: none !important;
+}
+
