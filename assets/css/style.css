@@ -521,127 +521,69 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
 }
 .topic-bar.is-sticky{ position: sticky; top: clamp(60px, 9vh, 90px); z-index: 50;
 }
-/* === MOBILE MENU FIX (readability + layout) ============================ */
-@media (max-width: 820px) {
-
-  /* Put the header above everything */
-  header, .site-header, .navwrap { z-index: 9999; }
-
-  /* Full-screen menu panel (works whether your list is .navlinks or .menu) */
-  .navwrap .navlinks,
-  .navwrap .menu {
-    position: fixed;
-    inset: 0;                     /* top:0 right:0 bottom:0 left:0 */
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
-    padding: max(24px, env(safe-area-inset-top)) 24px 32px
-             max(24px, env(safe-area-inset-bottom));
-    background: rgba(0,0,0,.90);  /* solid dark, not the transparent gradient */
-    backdrop-filter: blur(3px);
-  }
-
-  /* Links inside the menu – make them bright and crisp */
-  .navwrap .navlinks a,
-  .navwrap .menu a {
-    color: #fff !important;
-    font-weight: 800;
-    font-size: clamp(20px, 5.5vw, 28px);
-    letter-spacing: .02em;
-    text-shadow: 0 2px 8px rgba(0,0,0,.55);
-  }
-  .navwrap .navlinks a:hover,
-  .navwrap .menu a:hover,
-  .navwrap .navlinks a:focus,
-  .navwrap .menu a:focus {
-    opacity: .9;
-  }
-
-  /* Optional: when your JS adds a class to lock scroll while menu open */
-  html.menu-open,
-  body.menu-open { height: 100%; overflow: hidden; }
-}
-/* v:mobile-menu-2 */
-body::after{
-  content:"CSS vMM2";
-  position:fixed; bottom:6px; left:6px;
-  background:#000; color:#fff; font:12px/1 sans-serif;
-  padding:3px 6px; z-index:9999999; opacity:.7;
-}
-/* === RUBYNEST mobile header/menu hotfix (vMM3) ======================= */
+/* === 1) MOBILE MENU: force white labels in the popup ================== */
 @media (max-width: 820px){
 
-  /* Header bar */
-  .navwrap,
-  header.site-header,
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 10000;
-    background: #1a0006 !important;   /* deep ruby/near black */
-    padding: 10px 14px !important;
+  /* Most common cases */
+  .mobile-menu a,
+  .drawer a,
+  .nav-drawer a,
+  .menu-panel a,
+  .navlinks.is-open a,
+  .navlinks.open a {
+    color:#fff !important;
+    text-shadow:0 2px 8px rgba(0,0,0,.45);
   }
 
-  /* Brand / logo */
-  .brand img { height: 34px !important; width: auto !important; display:block; }
-  .brand { display:flex; align-items:center; gap:10px; }
+  /* If your toggle uses aria-expanded on the hamburger */
+  button[aria-controls][aria-expanded="true"] + .navlinks a,
+  [aria-modal="true"] a,
+  nav[role="dialog"] a {
+    color:#fff !important;
+    text-shadow:0 2px 8px rgba(0,0,0,.45);
+  }
+}
 
-  /* Hide inline nav links on mobile */
-  .navlinks { display: none !important; }
+/* === 2) HEADER: keep brand on ONE LINE, remove extra vertical space ==== */
+@media (max-width: 820px){
 
-  /* Make sure the hamburger is visible on mobile */
-  .menu-toggle,
-  .hamburger,
-  .nav-toggle,
-  button[aria-controls="nav"] {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    width: 42px; height: 42px;
-    background: transparent; border: 0; color: #fff;
-    z-index: 10001;
+  /* Trim header padding so it doesn’t look double-height */
+  header,
+  .site-header,
+  .navwrap {
+    padding-top: max(6px, env(safe-area-inset-top));
+    padding-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
-  /* ===== Overlay menu (3 ways to detect "open")
-     1) aria-expanded="true" on the toggle,
-     2) a class on <body> (menu-open),
-     3) a class on the drawer (.mobile-menu.is-open) ===== */
-
-  /* (A) aria-expanded pattern */
-  button[aria-controls="nav"][aria-expanded="true"] + .navlinks,
-  /* (B) body class pattern */
-  body.menu-open .navlinks,
-  /* (C) explicit drawer class */
-  .mobile-menu.is-open,
-  .drawer.is-open {
-    position: fixed !important;
-    inset: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 28px !important;
-    padding: max(24px, env(safe-area-inset-top)) 24px
-             max(32px, env(safe-area-inset-bottom)) !important;
-    background: rgba(0,0,0,.92) !important;
-    backdrop-filter: blur(3px);
+  /* Keep the company name on a single line and scale it a bit smaller */
+  .brand,
+  .brand .name,
+  .brand-name,
+  .site-branding {
+    display:flex;
+    align-items:center;
+    gap:10px;            /* space between logo and name */
+    margin:0 !important; /* kill unexpected top/bottom gaps */
+    white-space:nowrap;  /* <<< NO WRAP */
   }
 
-  /* Menu links inside overlay */
-  button[aria-controls="nav"][aria-expanded="true"] + .navlinks a,
-  body.menu-open .navlinks a,
-  .mobile-menu.is-open a,
-  .drawer.is-open a {
-    color: #fff !important;
-    font-weight: 800 !important;
-    font-size: clamp(20px, 5.5vw, 28px) !important;
-    text-decoration: none !important;
-    text-shadow: 0 2px 8px rgba(0,0,0,.55);
+  /* If the name is still wrapping, reduce size slightly */
+  .brand .name,
+  .brand-name,
+  .site-branding .name {
+    font-size: clamp(18px, 5.2vw, 22px);
+    line-height: 1.05;
   }
 
-  /* Prevent background scroll when menu is open (if you use body class) */
-  body.menu-open { height: 100%; overflow: hidden; }
+  /* Keep the logo compact so name fits in one line */
+  .brand img,
+  .site-branding img,
+  .logo img {
+    height: 30px;  /* adjust to taste (28–34px usually works) */
+    width: auto;
+    display:block;
+  }
 }
 
