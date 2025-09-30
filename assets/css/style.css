@@ -738,4 +738,35 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
     white-space:nowrap !important;
   }
 }
+/* === FIX HEADER EXTRA SPACE === */
+header, 
+.header, 
+.navbar, 
+.site-header, 
+.navwrap {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 70px; /* adjust if you want it taller */
+  line-height: 70px; /* vertically center items */
+  display: flex;
+  align-items: center;
+}
+
+/* Logo + company name in one line */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between logo and text */
+}
+
+.brand img {
+  height: 40px; 
+  width: auto;
+}
+
+.brand .name {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff; /* white text for visibility */
+}
 
