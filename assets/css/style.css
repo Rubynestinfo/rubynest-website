@@ -1010,3 +1010,107 @@ ins.adsbygoogle {
 .mobile-menu a:hover {
   color: #FFD700 !important;        /* gold highlight when hovered */
 }
+
+/* ===== RUBYNEST — Mobile overlay menu (independent of site nav) ===== */
+
+:root {
+  --rn-menu-z: 12000;
+  --rn-menu-bg: #fff;
+  --rn-menu-fg: #000;
+  --rn-menu-accent: #800020; /* wine red hover */
+}
+
+/* Ensure header sits above content, but below menu panel */
+header, .header, .navwrap, .navbar {
+  position: sticky;
+  top: 0;
+  z-index: calc(var(--rn-menu-z) - 2);
+}
+
+/* Fallback / injected hamburger button (if your own isn’t found) */
+#rnNavToggle {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  position: relative;
+  z-index: calc(var(--rn-menu-z) + 1); /* above panel so you can close */
+}
+#rnNavToggle span,
+#rnNavToggle span::before,
+#rnNavToggle span::after {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #111;
+  position: relative;
+  transition: .2s ease;
+}
+#rnNavToggle span::before { position: absolute; top: -7px; }
+#rnNavToggle span::after  { position: absolute; top:  7px; }
+
+/* Backdrop */
+#rnMenuBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.28);
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--rn-menu-z);
+  transition: opacity .18s ease;
+}
+
+/* Panel */
+#rnMenuPanel {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  top: 64px;                     /* sits under the header */
+  background: var(--rn-menu-bg);
+  color: var(--rn-menu-fg);
+  border-radius: 14px;
+  box-shadow: 0 18px 48px rgba(0,0,0,.25);
+  transform: translateY(-12px);
+  opacity: 0;
+  pointer-events: none;
+  z-index: calc(var(--rn-menu-z) + 1);
+  transition: transform .18s ease, opacity .18s ease;
+}
+#rnMenuPanel[data-open],
+#rnMenuBackdrop[data-open] {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+#rnMenuList {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+#rnMenuList a, #rnMenuList button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  color: var(--rn-menu-fg) !important;   /* readable on white */
+  text-decoration: none;
+  font-weight: 700;
+  background: transparent;
+  border: 0;
+  text-align: left;
+}
+#rnMenuList a:hover,
+#rnMenuList button:hover {
+  background: var(--rn-menu-accent);
+  color: #fff !important;
+}
+
+/* Prevent page scroll while menu open (iOS friendly) */
+body.rn-menu-open { overflow: hidden; touch-action: none; }
