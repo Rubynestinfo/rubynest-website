@@ -957,3 +957,42 @@ ins.adsbygoogle:empty {
   });
 })();
 </script>
+/* === RUBYNEST FIXES === */
+
+/* Kill white AdSense bar */
+ins.adsbygoogle {
+  display: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Fix header spacing - one clean line */
+.header, .site-header, nav.navbar {
+  margin: 0 !important;
+  padding: 0 10px !important;
+  height: 60px !important;  /* adjust this if logo looks too tight */
+  line-height: 60px !important;
+  background: linear-gradient(90deg, #800020, #000) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Logo + text */
+.brand img {
+  height: 40px !important;
+  margin-right: 8px !important;
+  vertical-align: middle !important;
+}
+.brand .name {
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  color: #fff !important;
+}
+
+/* Mobile menu dropdown */
+.mobile-menu, .mobile-menu a, .mobile-menu li {
+  color: #fff !important;
+  background: #800020 !important;
+}
