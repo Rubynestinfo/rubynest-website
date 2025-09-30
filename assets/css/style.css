@@ -570,4 +570,78 @@ body::after{
   background:#000; color:#fff; font:12px/1 sans-serif;
   padding:3px 6px; z-index:9999999; opacity:.7;
 }
+/* === RUBYNEST mobile header/menu hotfix (vMM3) ======================= */
+@media (max-width: 820px){
+
+  /* Header bar */
+  .navwrap,
+  header.site-header,
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 10000;
+    background: #1a0006 !important;   /* deep ruby/near black */
+    padding: 10px 14px !important;
+  }
+
+  /* Brand / logo */
+  .brand img { height: 34px !important; width: auto !important; display:block; }
+  .brand { display:flex; align-items:center; gap:10px; }
+
+  /* Hide inline nav links on mobile */
+  .navlinks { display: none !important; }
+
+  /* Make sure the hamburger is visible on mobile */
+  .menu-toggle,
+  .hamburger,
+  .nav-toggle,
+  button[aria-controls="nav"] {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px; height: 42px;
+    background: transparent; border: 0; color: #fff;
+    z-index: 10001;
+  }
+
+  /* ===== Overlay menu (3 ways to detect "open")
+     1) aria-expanded="true" on the toggle,
+     2) a class on <body> (menu-open),
+     3) a class on the drawer (.mobile-menu.is-open) ===== */
+
+  /* (A) aria-expanded pattern */
+  button[aria-controls="nav"][aria-expanded="true"] + .navlinks,
+  /* (B) body class pattern */
+  body.menu-open .navlinks,
+  /* (C) explicit drawer class */
+  .mobile-menu.is-open,
+  .drawer.is-open {
+    position: fixed !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 28px !important;
+    padding: max(24px, env(safe-area-inset-top)) 24px
+             max(32px, env(safe-area-inset-bottom)) !important;
+    background: rgba(0,0,0,.92) !important;
+    backdrop-filter: blur(3px);
+  }
+
+  /* Menu links inside overlay */
+  button[aria-controls="nav"][aria-expanded="true"] + .navlinks a,
+  body.menu-open .navlinks a,
+  .mobile-menu.is-open a,
+  .drawer.is-open a {
+    color: #fff !important;
+    font-weight: 800 !important;
+    font-size: clamp(20px, 5.5vw, 28px) !important;
+    text-decoration: none !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,.55);
+  }
+
+  /* Prevent background scroll when menu is open (if you use body class) */
+  body.menu-open { height: 100%; overflow: hidden; }
+}
 
