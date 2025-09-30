@@ -1147,3 +1147,43 @@ nav .navlinks, .navlinks, #nav, .navbar .navlinks {
 
 /* Ensure links are visible */
 nav a, .navlinks a, #nav a { color: #000 !important; font-weight: 700; }
+
+/***** RUBYNEST – tiny, scoped fixes *****/
+
+/* 1) Kill the white Anchor Ad bar (Google Auto Ads “Anchor” format) */
+ins.adsbygoogle[data-anchor-shown="true"],
+ins.adsbygoogle[data-anchor-status="displayed"],
+ins.adsbygoogle[style*="position: fixed"][style*="bottom"],
+iframe[src*="ads"]:not([style*="static"])[style*="bottom: 0"],
+.google-auto-placed[style*="bottom: 0"][style*="position: fixed"] {
+  display: none !important;
+}
+
+/* 2) Mobile menu: make sure the hamburger is clickable and the menu text is readable */
+#rnNavToggle, .hamburger, .menu-btn {           /* whatever your burger element is */
+  position: relative;
+  z-index: 10001 !important;                    /* ensure it’s above everything */
+}
+
+/* When a slide-in drawer / overlay menu is open, text should be white on dark */
+@media (max-width: 900px) {
+  .mobile-menu, .nav-drawer, #menuPanel, [data-menu="panel"] {
+    background: rgba(0,0,0,.92) !important;
+    color: #fff !important;
+    /* if your drawer uses full screen */
+    /* position: fixed; inset: 0; overflow:auto; z-index: 10000; */
+  }
+  .mobile-menu a, .nav-drawer a, #menuPanel a, [data-menu="panel"] a {
+    color: #fff !important;
+    font-weight: 700;
+  }
+  .mobile-menu a:hover, .nav-drawer a:hover, #menuPanel a:hover, [data-menu="panel"] a:hover {
+    color: #ffe7ea !important;
+  }
+}
+
+/* 3) Top safe-area tidy on iOS – prevents odd gaps without shifting your header */
+html, body { margin-top: 0 !important; }
+@supports (padding: max(0px)) {
+  body { padding-top: max(0px, env(safe-area-inset-top)); }
+}
