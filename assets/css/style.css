@@ -521,3 +521,46 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
 }
 .topic-bar.is-sticky{ position: sticky; top: clamp(60px, 9vh, 90px); z-index: 50;
 }
+/* === MOBILE MENU FIX (readability + layout) ============================ */
+@media (max-width: 820px) {
+
+  /* Put the header above everything */
+  header, .site-header, .navwrap { z-index: 9999; }
+
+  /* Full-screen menu panel (works whether your list is .navlinks or .menu) */
+  .navwrap .navlinks,
+  .navwrap .menu {
+    position: fixed;
+    inset: 0;                     /* top:0 right:0 bottom:0 left:0 */
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    padding: max(24px, env(safe-area-inset-top)) 24px 32px
+             max(24px, env(safe-area-inset-bottom));
+    background: rgba(0,0,0,.90);  /* solid dark, not the transparent gradient */
+    backdrop-filter: blur(3px);
+  }
+
+  /* Links inside the menu – make them bright and crisp */
+  .navwrap .navlinks a,
+  .navwrap .menu a {
+    color: #fff !important;
+    font-weight: 800;
+    font-size: clamp(20px, 5.5vw, 28px);
+    letter-spacing: .02em;
+    text-shadow: 0 2px 8px rgba(0,0,0,.55);
+  }
+  .navwrap .navlinks a:hover,
+  .navwrap .menu a:hover,
+  .navwrap .navlinks a:focus,
+  .navwrap .menu a:focus {
+    opacity: .9;
+  }
+
+  /* Optional: when your JS adds a class to lock scroll while menu open */
+  html.menu-open,
+  body.menu-open { height: 100%; overflow: hidden; }
+}
+
