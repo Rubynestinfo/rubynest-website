@@ -521,15 +521,3 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
 }
 .topic-bar.is-sticky{ position: sticky; top: clamp(60px, 9vh, 90px); z-index: 50;
 }
-/* iOS Safari / Chrome white bar fix */
-html, body {
-  min-height: 100vh;
-}
-
-@supports (-webkit-touch-callout: none) {
-  html, body {
-    min-height: -webkit-fill-available;
-  }
-}
-
-
