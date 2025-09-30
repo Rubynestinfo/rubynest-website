@@ -1187,3 +1187,47 @@ html, body { margin-top: 0 !important; }
 @supports (padding: max(0px)) {
   body { padding-top: max(0px, env(safe-area-inset-top)); }
 }
+
+/***** RUBYNEST – minimal hot-fixes *****/
+
+/* A) ANCHOR AD (white bar) — hide any fixed Google anchor stuck to the bottom */
+ins.adsbygoogle[data-anchor-shown="true"],
+ins.adsbygoogle[data-anchor-status="displayed"],
+ins.adsbygoogle[style*="position: fixed"][style*="bottom"],
+.google-auto-placed[style*="position: fixed"][style*="bottom"],
+iframe[id^="google_ads_iframe_"][style*="position: fixed"][style*="bottom"],
+div[id^="google_ads"][style*="position: fixed"][style*="bottom"]{
+  display:none !important;
+}
+
+/* B) HAMBURGER CLICKABILITY on iOS — keep header/nav above all and 
+      stop the hero overlay from catching taps */
+.header, .site-header, .navwrap, #rnNavToggle, .hamburger, .menu-btn{
+  position: relative;
+  z-index: 10010 !important; /* above hero, drawers, etc. */
+}
+.hero .overlay{ pointer-events: none !important; } /* don’t intercept touches */
+
+/* C) MOBILE MENU — force readable text (Chrome showed white box with white text) */
+@media (max-width: 900px){
+  .mobile-menu, .nav-drawer, #menuPanel, [data-menu="panel"]{
+    background:#ffffff !important;  /* plain white panel */
+    color:#111 !important;          /* dark text */
+    z-index: 10005 !important;
+    /* If your drawer uses full-screen overlay, uncomment next 3 lines:
+       position: fixed; inset: 0; overflow:auto;
+    */
+  }
+  .mobile-menu a, .nav-drawer a, #menuPanel a, [data-menu="panel"] a{
+    color:#111 !important; font-weight:700;
+  }
+  .mobile-menu a:hover, .nav-drawer a:hover, #menuPanel a:hover, [data-menu="panel"] a:hover{
+    color:#8b0f13 !important;
+  }
+}
+
+/* D) iOS safe-area tidy — prevents odd top gaps without moving your header */
+html, body{ margin-top:0 !important; }
+@supports (padding: max(0px)){
+  body{ padding-top:max(0px, env(safe-area-inset-top)); }
+}
