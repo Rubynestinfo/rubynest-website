@@ -661,3 +661,81 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
   }
 }
 </style>
+/* ===== BRUTE FORCE: mobile menu text white ===== */
+@media (max-width: 820px){
+  /* cover a ton of common overlay/menu containers */
+  .navlinks, .navlinks *, 
+  .mobile-menu, .mobile-menu *, 
+  .menu, .menu *, 
+  .menu-panel, .menu-panel *, 
+  .drawer, .drawer *, 
+  .offcanvas, .offcanvas *, 
+  .overlay-menu, .overlay-menu *,
+  [role="dialog"], [role="dialog"] *,
+  [aria-modal="true"], [aria-modal="true"] * {
+    color:#fff !important;
+    text-shadow:0 1px 6px rgba(0,0,0,.6) !important;
+  }
+
+  /* make sure links are visible & tappable */
+  .navlinks a, .mobile-menu a, .menu a, .menu-panel a,
+  .drawer a, .offcanvas a, .overlay-menu a {
+    display:block !important;
+    padding:14px 18px !important;
+    font-weight:800 !important;
+  }
+}
+/* ===== Compact single-line header on mobile ===== */
+@media (max-width: 820px){
+  html, body { margin:0 !important; padding:0 !important; }
+
+  header, .site-header, .navwrap {
+    margin:0 !important;
+    padding:8px 12px !important;
+    position: sticky;
+    top:0;
+    z-index:1000;
+  }
+
+  /* keep everything on one row */
+  header .container, .site-header .container, .navwrap {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    flex-wrap:nowrap !important;
+    gap:12px !important;
+    width:100%;
+  }
+
+  .brand, [class*="brand"] {
+    display:flex !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin:0 !important;
+    white-space:nowrap !important;   /* force one line */
+  }
+  .brand img, [class*="brand"] img, .logo img {
+    height:28px !important;          /* tweak if needed */
+    width:auto !important;
+    display:block !important;
+  }
+  .brand .name, .brand-name, [class*="brand"] .name {
+    font-size:clamp(18px,5vw,22px) !important;
+    line-height:1.05 !important;
+    white-space:nowrap !important;
+  }
+
+  /* keep cta on same row */
+  header nav, .nav, [class*="nav"] {
+    display:flex !important;
+    align-items:center !important;
+    gap:16px !important;
+    flex-wrap:nowrap !important;
+    margin:0 !important;
+  }
+  .btn-cta, .quote-cta, [class*="btn-cta"], [class*="quote"] {
+    flex:0 0 auto !important;
+    white-space:nowrap !important;
+  }
+}
+
