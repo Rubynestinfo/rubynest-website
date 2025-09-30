@@ -586,4 +586,78 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
     display:block;
   }
 }
+<style id="mobile-quick-fix">
+/* ====== 1) Make the slide-out / popup menu text WHITE ====== */
+/* We target common overlay containers + any that use ARIA dialog */
+[role="dialog"], [aria-modal="true"],
+.drawer, .mobile-menu, .menu-panel, .menu__panel,
+.nav-drawer, .offcanvas, .overlay-menu, .navlinks.open, .navlinks.is-open {
+  color: #fff !important;
+}
+[role="dialog"] a, [aria-modal="true"] a,
+.drawer a, .mobile-menu a, .menu-panel a, .menu__panel a,
+.nav-drawer a, .offcanvas a, .overlay-menu a,
+.navlinks.open a, .navlinks.is-open a {
+  color: #fff !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,.45);
+}
 
+/* ====== 2) Compact header on mobile to a single line ====== */
+@media (max-width: 820px){
+  /* Remove accidental body/header spacing */
+  html, body { margin:0 !important; padding:0 !important; }
+
+  header, .site-header, .navwrap {
+    margin: 0 !important;
+    padding: 8px 12px !important;   /* tight one-row header */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  /* Keep header content on ONE line */
+  header .container, .site-header .container, .navwrap {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+    gap: 12px !important;
+    width: 100%;
+  }
+
+  .brand, [class*="brand"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    margin: 0 !important;
+    white-space: nowrap !important;  /* force 1 line */
+  }
+
+  .brand img, [class*="brand"] img, .logo img {
+    height: 28px !important;         /* tweak 26–32px if needed */
+    width: auto !important;
+    display: block !important;
+  }
+
+  .brand .name, .brand-name, [class*="brand"] .name {
+    font-size: clamp(18px, 5vw, 22px) !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+
+  header nav, .nav, [class*="nav"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: nowrap !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+  }
+
+  /* keep the “Get a free quote” button on the same row */
+  .btn-cta, .quote-cta, [class*="btn-cta"], [class*="quote"] {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
+  }
+}
+</style>
