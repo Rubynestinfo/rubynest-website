@@ -875,3 +875,85 @@ header .btn {
     height: 24px !important;
   }
 }
+<!-- === RUBYNEST Fixes: AdSense + Mobile Menu === -->
+
+<style>
+/* 1) Collapse empty AdSense anchor slots (no more white bar) */
+ins.adsbygoogle {
+  display: block !important;      /* keep visible when filled */
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+}
+ins.adsbygoogle:empty {
+  display: none !important;       /* collapse empty slots */
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 2) Mobile menu hidden by default */
+#nav, .navlinks, .mobile-menu, .nav-drawer {
+  display: none;
+}
+/* Menu visible when opened */
+#nav.is-open, .navlinks.is-open, .mobile-menu.is-open, .nav-drawer.is-open {
+  display: flex !important;
+  position: fixed !important;
+  inset: 0 !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 24px !important;
+  padding: max(24px, env(safe-area-inset-top)) 24px
+           max(28px, env(safe-area-inset-bottom));
+  background: rgba(0,0,0,.92) !important;
+  z-index: 9999 !important;
+}
+/* White, readable links */
+#nav.is-open a, .navlinks.is-open a, .mobile-menu.is-open a, .nav-drawer.is-open a {
+  color: #fff !important;
+  font-weight: 700;
+  font-size: 20px;
+  text-shadow: 0 1px 3px rgba(0,0,0,.6);
+}
+</style>
+
+<script>
+(function () {
+  // Find the toggle button (hamburger)
+  var toggle = document.querySelector('.menu-toggle, .hamburger, button[aria-controls]');
+  if (!toggle) return;
+
+  // Find the menu it controls
+  var menu = null;
+  if (toggle.getAttribute('aria-controls')) {
+    menu = document.getElementById(toggle.getAttribute('aria-controls'));
+  }
+  if (!menu) {
+    menu = document.querySelector('#nav, .navlinks, .mobile-menu, .nav-drawer');
+  }
+  if (!menu) return;
+
+  // Ensure accessible state
+  toggle.setAttribute('aria-expanded', 'false');
+
+  function setOpen(open) {
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menu.classList.toggle('is-open', open);
+    document.body.classList.toggle('menu-open', open);
+  }
+
+  // Toggle on click
+  toggle.addEventListener('click', function (e) {
+    e.preventDefault();
+    var open = toggle.getAttribute('aria-expanded') !== 'true';
+    setOpen(open);
+  });
+
+  // Close when clicking a link inside the menu
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) setOpen(false);
+  });
+})();
+</script>
