@@ -815,3 +815,63 @@ html, body {
 .navlinks a:hover {
   color: #ffcccc !important; /* lighter hover color */
 }
+/* ===== RUBYNEST FIXES ===== */
+
+/* 1. Remove Google AdSense bottom anchor white bar */
+ins.adsbygoogle[data-anchor*="bottom"],
+.google-auto-placed[data-anchor*="bottom"],
+iframe[id^="google_ads_iframe_"][data-anchor*="bottom"] {
+  display: none !important;
+}
+
+/* 2. Header clean-up (remove empty spacing) */
+header, .header, .navwrap, .site-header {
+  margin: 0 !important;
+  padding: 8px 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  background: linear-gradient(90deg, #8b0000, #300000) !important; /* wine red → black */
+}
+
+header .brand img {
+  height: 28px !important;
+  margin-right: 8px;
+}
+
+header .brand .name {
+  font-size: 18px !important;
+  font-weight: 900;
+  color: #fff !important;
+}
+
+/* Ensure "Get a free quote" stays aligned right */
+header .btn {
+  margin-left: auto !important;
+}
+
+/* 3. Mobile menu readability */
+.mobile-menu,
+.mobile-menu a {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+.mobile-menu {
+  background: rgba(0,0,0,0.92) !important;
+  padding: 20px;
+}
+
+.mobile-menu a:hover {
+  color: #ffdddd !important; /* slight hover contrast */
+}
+
+/* 4. Small-screen tidy-up */
+@media (max-width: 768px) {
+  header, .header, .navwrap, .site-header {
+    padding: 10px 12px !important;
+  }
+  .brand img {
+    height: 24px !important;
+  }
+}
