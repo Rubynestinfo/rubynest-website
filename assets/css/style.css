@@ -1114,3 +1114,36 @@ header, .header, .navwrap, .navbar {
 
 /* Prevent page scroll while menu open (iOS friendly) */
 body.rn-menu-open { overflow: hidden; touch-action: none; }
+
+/* ===== EMERGENCY NAV RESET ===== */
+html, body { overflow: auto !important; }
+
+header, .header, .site-header, .navwrap {
+  position: relative !important;
+  z-index: 10000 !important;
+  margin: 0 !important;
+  padding-top: 0 !important;
+}
+
+nav .navlinks, .navlinks, #nav, .navbar .navlinks {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  gap: 20px;
+}
+
+/* Nuke any full-screen overlay/panel that might be on */
+#rnMenuBackdrop, #rnMenuPanel,
+.mobile-menu.is-open, .nav-drawer.is-open, .overlay-menu.is-open,
+.mobile-menu[style*="position: fixed"], .nav-drawer[style*="position: fixed"],
+[aria-modal="true"], [role="dialog"] {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Make sure the hamburger itself isn't hiding the header */
+#rnNavToggle { z-index: 10001 !important; }
+
+/* Ensure links are visible */
+nav a, .navlinks a, #nav a { color: #000 !important; font-weight: 700; }
