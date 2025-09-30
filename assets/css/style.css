@@ -996,3 +996,17 @@ ins.adsbygoogle {
   color: #fff !important;
   background: #800020 !important;
 }
+/* === Mobile Hamburger Menu Fix === */
+.mobile-menu, 
+.mobile-menu ul, 
+.mobile-menu li, 
+.mobile-menu a {
+  background: #800020 !important;   /* wine red */
+  color: #ffffff !important;        /* white text */
+  font-weight: 600 !important;
+  text-align: left !important;
+}
+
+.mobile-menu a:hover {
+  color: #FFD700 !important;        /* gold highlight when hovered */
+}
