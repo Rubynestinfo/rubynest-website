@@ -412,21 +412,18 @@ header a[href*="quote"]:hover, .quote-btn:hover{
   if (!btn || !links) return;
 
   btn.addEventListener('click', function() {
-    // Check if the menu is currently visible by checking its style
-    const isVisible = links.style.display === 'flex';
+    const isExpanded = btn.getAttribute('aria-expanded') === 'true';
 
-    if (isVisible) {
-      links.style.display = 'none'; // Hide it
-      btn.setAttribute('aria-expanded', 'false');
-      document.documentElement.classList.remove('menu-open');
-    } else {
-      links.style.display = 'flex'; // Show it
-      btn.setAttribute('aria-expanded', 'true');
-      document.documentElement.classList.add('menu-open');
-    }
+    // Set the new state (the opposite of the current one)
+    btn.setAttribute('aria-expanded', !isExpanded);
+
+    // Toggle the classes based on the new state
+    links.classList.toggle('menu-is-open');
+    document.documentElement.classList.toggle('menu-open');
   });
 })();
 </script>
+
 <script id="autoplay-check">
 (function(){ function enableFallback(){ document.documentElement.classList.add('hero-no-video'); } try{ var v=document.createElement('video'); v.muted=true; v.playsInline=true; v.autoplay=true; var can = !!(v.canPlayType && (v.canPlayType('video/mp4')||v.canPlayType('video/webm'))); if(!can){ enableFallback(); return; } var playPromise = v.play(); if(playPromise && playPromise.catch){ playPromise.catch(enableFallback); } }catch(e){ enableFallback(); }
 })();</script><a class="call-fab open-call-modal" href="#">Request a Call</a>
