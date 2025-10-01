@@ -533,4 +533,15 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
     max-height: 48px !important; /* Forcing a smaller logo */
   }
 }
+/* --- ADD THIS CSS TO THE BOTTOM OF YOUR STYLESHEET --- */
+
+/* By default, the menu is hidden */
+.navlinks {
+  display: none;
+}
+
+/* When it has the 'menu-is-open' class, it becomes visible */
+.navlinks.menu-is-open {
+  display: flex;
+}
 
