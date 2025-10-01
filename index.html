@@ -150,7 +150,7 @@ header a[href*="quote"]:hover, .quote-btn:hover{
 
 <style>
 /* === RubyNest Modal Header Style === */
-.modal-header-rn{ box-shadow: 0 2px 8px rgba(0,0,0,.06);  background: #fff;  z-index: 10;  top: 0;  position: sticky;
+.modal-header-rn{ box-shadow: 0 2px 8px rgba(0,0,0,.06);  background: #fff;  z-index: 10;  top: 0;  position: sticky; 
   padding: 14px 18px 10px;
   border-bottom:1px solid #f1e6e8;
   margin: -6px -6px 16px; /* pulls to box edge if modal has padding */
@@ -401,28 +401,8 @@ header a[href*="quote"]:hover, .quote-btn:hover{
 </footer>
 
 <script id="mobile-nav-toggle">
-(function() {
-  const btn = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.navlinks');
-
-  if (!btn || !links) return;
-
-  btn.addEventListener('click', function() {
-    // Check if the menu is currently visible by checking its style
-    const isVisible = links.style.display === 'flex';
-
-    if (isVisible) {
-      links.style.display = 'none'; // Hide it
-      btn.setAttribute('aria-expanded', 'false');
-      document.documentElement.classList.remove('menu-open');
-    } else {
-      links.style.display = 'flex'; // Show it
-      btn.setAttribute('aria-expanded', 'true');
-      document.documentElement.classList.add('menu-open');
-    }
-  });
-})();
-</script>
+(function(){ const btn=document.querySelector('.nav-toggle'); const links=document.querySelector('.navlinks'); if(!btn||!links) return; btn.addEventListener('click',function(){ const open=links.getAttribute('data-open')==='true'; links.setAttribute('data-open', String(!open)); btn.setAttribute('aria-expanded', String(!open)); document.documentElement.classList.toggle('menu-open', !open); });
+})();</script>
 
 <script id="autoplay-check">
 (function(){ function enableFallback(){ document.documentElement.classList.add('hero-no-video'); } try{ var v=document.createElement('video'); v.muted=true; v.playsInline=true; v.autoplay=true; var can = !!(v.canPlayType && (v.canPlayType('video/mp4')||v.canPlayType('video/webm'))); if(!can){ enableFallback(); return; } var playPromise = v.play(); if(playPromise && playPromise.catch){ playPromise.catch(enableFallback); } }catch(e){ enableFallback(); }
@@ -496,10 +476,10 @@ header a[href*="quote"]:hover, .quote-btn:hover{
       if (!dismissed && bar) {
         document.body.classList.add('rn-floatpad');
         var closeBtn = bar.querySelector('.rn-close');
-        closeBtn && closeBtn.addEventListener('click', function(){
-          bar.style.display='none';
+        closeBtn && closeBtn.addEventListener('click', function(){ 
+          bar.style.display='none'; 
           document.body.classList.remove('rn-floatpad');
-          sessionStorage.setItem('rn-floatbar-dismissed','1');
+          sessionStorage.setItem('rn-floatbar-dismissed','1'); 
         });
       }
     } catch(e){}
