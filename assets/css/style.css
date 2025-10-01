@@ -521,3 +521,19 @@ a:hover{ color: var(--brand) } /* Mobile adjustments */
 }
 .topic-bar.is-sticky{ position: sticky; top: clamp(60px, 9vh, 90px); z-index: 50;
 }
+/* Adjustments for a more compact mobile header */
+@media (max-width: 768px) {
+  .header .container, header .container {
+    /* Reduce the minimum height of the header bar */
+    min-height: 60px; 
+    
+    /* Reduce the vertical padding inside the header */
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  /* You may also need to slightly reduce your logo's size */
+  .header .brand img {
+    max-height: 48px;
+  }
+}
