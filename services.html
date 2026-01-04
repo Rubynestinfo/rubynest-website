@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width,initial-scale=1" name="viewport"/>
-<title>Services • RUBYNEST INC.</title>
-<link href="assets/css/style.css?v=93" rel="stylesheet"/>
+<main class="container">
+<section class="section" id="living">
+  <div class="container">
+    <h2 class="h2">Living Rooms</h2>
+    <div class="grid cols-2">
+      <div class="card"><img alt="Living room" src="assets/img/living1.jpg?v=93"/><div class="pad"><p>Comfortable seating, natural light, and cohesive palettes for everyday living.</p></div></div>
+      <div class="card"><img alt="Living room alt" src="assets/img/living2.jpg?v=93"/><div class="pad"><p>Durable fabrics and tidy cable management for clean lines.</p></div></div>
+    </div>
+  </div>
+</section>
 
-<style>
-/* Header styles */
-header, nav.navbar, .site-header { box-shadow: 0 3px 8px rgba(0,0,0,0.12); position: relative; z-index: 50; }
+<section class="section" id="kitchens">
+  <div class="container">
+    <h2 class="h2">Kitchens</h2>
+    <div class="grid cols-2">
+      <div class="card"><img alt="Modern kitchen" src="assets/img/kitchen1.jpg?v=93"/><div class="pad"><p>Cabinetry, counters, and hardware installed precisely for daily use.</p></div></div>
+      <div class="card"><img alt="Bright kitchen" src="assets/img/kitchen2.jpg?v=93"/><div class="pad"><p>Lighting plans and appliance placements to boost workflow.</p></div></div>
+    </div>
+  </div>
+</section>
 
-/* Ensure file inputs are clickable */
-input[type="file"]{opacity:1 !important; display:block !important; pointer-events:auto !important; position:relative !important; width:auto !important; height:auto !important;}
-
-/* RubyNest header and layout styles */
-:root{--rn-ruby:#7b001c;--rn-ruby-dark:#5a0016;--rn-soft:#f6eef0;--rn-shadow:0 6px 18px rgba(0,0,0,.06);}
-header, .site-header, .topbar, .navbar{position: sticky; top:0; z-index: 1000; background:#fff; border-bottom: 1px solid #f1e6e8; box-shadow: var(--rn-shadow);}
-header > .container, .site-header > .container, .navbar > .container, header .container:not(.no-header-layout){max-width: 1200px; margin: 0 auto; padding: 10px clamp(12px, 3vw, 24px); display:flex; align-items:center; gap: 20px;}
-header, .site-header, .navbar{padding-left: clamp(8px, 2.5vw, 20px); padding-right: clamp(8px, 2.5vw, 20px);}
-header .brand, .site-header .brand, .navbar .brand, .logo, .site-logo{display:flex; align-items:center; gap: 10px; margin-right: 8px;}
-header .brand, .logo, .site-logo { order: 1; }
-header nav, header .nav, .navbar nav{ order: 2; margin-left: 8px; }
-header .cta, .header-cta, .nav-cta, header a[href*="quote"], header a[href*="get-quote"] { order: 3; margin-left: auto; }
-header img[alt*="RubyNest" i], header .logo img, .site-logo img{ height: 36px; width:auto; display:block;}
-header nav ul, header .nav ul, .navbar ul{ display:flex; flex-wrap: nowrap; gap: clamp(16px, 2.2vw, 28px); margin:0; padding:0; list-style:none;}
-header nav a, header .nav a, .navbar a{ text-decoration:none; color:#2b1a1e; font-weight:600; letter-spacing: .2px; padding: 6px 2px; border-radius: 6px; transition: color .18s ease, box-shadow .18s ease;}
-header nav a:hover, header .nav a:hover, .navbar a:hover{ color: var(--rn-ruby); box-shadow: inset 0 -2px 0 var(--rn-ruby);}
-header a[href*="quote"], header a[href*="get-quote"], .header-cta a, .nav-cta a, .quote-btn{ display:inline-block; background: linear-gradient(135deg, var(--rn-ruby), #000); color:#fff !important; padding: 10px 18px; border-radius: 999px; border: 1px solid #d5c6ca; box-shadow: 0 8px 16px rgba(123,0,28,.18); font-weight:700; letter-spacing:.3px;}
-header a[href*="quote"]:hover, .quote-btn:hover{ background: linear-gradient(135deg, var(--rn-ruby-dark), #111);}
-@media (max-width: 900px){ header > .container, .site-header > .container, .navbar > .container, header .container:not(.no-header-layout){ gap: 14px; } header nav ul, header .nav ul, .navbar ul { gap: 16px; } header a[href*="quote"], .quote-btn{ padding: 9px 14px; } }
-
-/* Modal header */
-.modal-header-rn{ position: sticky; top: 0; z-index: 10; background: #fff; box-shadow: 0 4px 10px rgba(0,0,0,.06); padding: 14px 18px 10px; border-bottom:1px solid #f1e6e8; margin: 0 0 16px 0;}
-.modal-header-rn h2{ margin:0; font-family:'Playfair Display',serif; font-size:1.6rem; color:#7b001c; text-align:center; font-weight:700; letter-spacing:.2px; }
-
-/* Floating Contact Bar */
-.rn-floatbar{position:fixed;left:0;right:0;bottom:0;z-index:9999;display:none;gap:12px;align-items:center;background:linear-gradient(90deg,#7b001f,#2b0a14 70%,#0a0a0a);border-top:1px solid rgba(255,255,255,.12);padding:12px 14px;}
-.rn-floatbar a{flex:1;text-align:center;text-decoration:none;border-radius:9999px;padding:14px 16px;border:1px solid rgba(255,255,255,.18);color:#fff;display:inline-block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700;letter-spacing:.2px;box-shadow:0 6px 16px rgba(0,0,0,.25);}
-.rn-floatbar a.rn-primary{background:#b20a36;border-color:#b20a36;}
-.rn-floatbar .rn-close{margin-left:8px;width:40px;height:40px;border-radius:9999px;border:1px solid rgba(255,255,255,.3);background:rgba(0,0,0,.2);color:#fff;font-size:20px;line-height:1;}
-@media (max-width: 820px){ .rn-floatbar{display:flex} } body.rn-floatpad{padding-bottom:78px;}
-</style>
-
-</head>
-<body>
-
-<header class="header">
-  <button aria-expanded="false" aria-label="Toggle menu" class="nav-toggle"><span></span><span></span><span></span></button>
-  <div class="navwrap">
-    <a class="brand" href="index.html"><img alt="RUBYNEST
+<section class="section" id="bathrooms">
+  <div class="container">
+    <h2 class="h2">Bathrooms</h2>
+    <div class="grid cols-2">
