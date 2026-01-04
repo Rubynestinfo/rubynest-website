@@ -11,11 +11,12 @@
   </script>
 
   <meta charset="utf-8"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Home • RUBYNEST INC.</title>
 
   <link href="assets/css/style.css?v=93" rel="stylesheet"/>
 
+  <!-- Smooth scroll -->
   <script id="smooth-scroll">
     document.addEventListener('click', function(e){
       const link = e.target.closest('a[href^="#"]');
@@ -30,9 +31,6 @@
     });
   </script>
 
-  <!-- ALL YOUR STYLES — UNCHANGED -->
-  <!-- (styles exactly as before, no ad-related CSS) -->
-
   <style>
     header, nav.navbar, .site-header {
       box-shadow: 0 3px 8px rgba(0,0,0,0.12);
@@ -40,21 +38,21 @@
       z-index: 50;
     }
   </style>
-
-  <!-- (keeping rest of your CSS exactly the same) -->
 </head>
 
 <body>
 
 <header class="header">
-  <button aria-expanded="false" aria-label="Toggle menu" class="nav-toggle">
+  <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
     <span></span><span></span><span></span>
   </button>
+
   <div class="navwrap">
     <a class="brand" href="index.html">
-      <img alt="RUBYNEST logo" src="assets/img/logo.png?v=93"/>
+      <img src="assets/img/logo.png?v=93" alt="RUBYNEST logo"/>
       <span class="name">RUBYNEST INC.</span>
     </a>
+
     <nav class="navlinks">
       <a href="index.html">Home</a>
       <a href="company.html">Company</a>
@@ -63,37 +61,70 @@
       <a href="inspiration.html">Inspiration</a>
       <a href="contact.html">Contact</a>
     </nav>
+
     <a class="btn" href="quote.html#form">Get a free quote</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="container">
-    <img alt="" src="assets/img/hero_home.jpg?v=93"/>
+    <img src="assets/img/hero_home.jpg?v=93" alt=""/>
     <div class="overlay"></div>
     <div class="inner">
       <h1 class="h1">Warm, modern renovations for real life.</h1>
-      <p>Kitchens, bathrooms, basements and whole-home updates—planned clearly, built cleanly, and delivered on schedule.</p>
+      <p>
+        Kitchens, bathrooms, basements and whole-home updates—planned clearly,
+        built cleanly, and delivered on schedule.
+      </p>
     </div>
   </div>
 </section>
 
 <main class="container">
 
-  <!-- YOUR CONTENT — UNCHANGED -->
-  <!-- (all sections preserved exactly, just no ads anywhere) -->
+  <section class="section wine-feature">
+    <div class="container">
+      <div class="grid cols-2">
+        <div class="copy">
+          <h2 class="h2">Thoughtful design. Reliable execution.</h2>
+          <p>
+            We plan and deliver warm, modern renovations made for real life.
+            Kitchens, bathrooms, basements, living rooms, lighting, and full-home updates—done cleanly and on schedule.
+          </p>
+          <p>
+            We coordinate trades, permits, and materials across Toronto and the GTA,
+            so you don’t have to juggle vendors.
+          </p>
+          <a class="btn" href="/services.html">Explore services</a>
+        </div>
+        <div class="card pad photo">
+          <img src="assets/img/basement1.jpg" alt="Living room renovation"
+               style="width:100%;height:auto;border-radius:14px"/>
+          <p>Comfortable spaces, durable finishes, and clean details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="rn-quick-contact" style="position:relative;margin:24px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;text-align:center">
+  <!-- Quick contact -->
+  <div class="rn-quick-contact"
+       style="position:relative;margin:24px 0;padding:16px;border:1px solid #e5e7eb;border-radius:12px;text-align:center">
     <p style="margin:0 0 12px;font-weight:600">Prefer to contact us directly?</p>
-    <a href="tel:+16478551620" style="display:inline-block;margin:4px 8px;padding:12px 16px;border-radius:9999px;text-decoration:none;border:1px solid #d1d5db">Call +1 647-855-1620</a>
-    <a href="mailto:info@rubynest.ca?subject=Free%20Estimate%20Request" style="display:inline-block;margin:4px 8px;padding:12px 16px;border-radius:9999px;text-decoration:none;border:1px solid #d1d5db">Email info@rubynest.ca</a>
+    <a href="tel:+14374574555"
+       style="display:inline-block;margin:4px 8px;padding:12px 16px;border-radius:9999px;text-decoration:none;border:1px solid #d1d5db">
+      Call +1 (437) 457-4555
+    </a>
+    <a href="mailto:info@rubynest.ca?subject=Free%20Estimate%20Request"
+       style="display:inline-block;margin:4px 8px;padding:12px 16px;border-radius:9999px;text-decoration:none;border:1px solid #d1d5db">
+      Email info@rubynest.ca
+    </a>
   </div>
 
 </main>
 
 <footer class="footer">
   <div class="footer-brandrow">
-    <img alt="RubyNest logo" class="footer-logo" src="assets/img/logo.png?v=93"/>
+    <img src="assets/img/logo.png?v=93" alt="RubyNest logo" class="footer-logo"/>
   </div>
 
   <div class="container footer-cols">
@@ -123,7 +154,7 @@
       <h4>Contact</h4>
       <ul class="contactlist">
         <li><a href="mailto:info@rubynest.ca">info@rubynest.ca</a></li>
-        <li><a href="tel:+16478551620">+1 647-855-1620</a></li>
+        <li><a href="tel:+14374574555">+1 (437) 457-4555</a></li>
       </ul>
       <div class="hours">Mon–Sat • 8:00 AM – 8:00 PM</div>
       <a class="btn foot-cta" href="quote.html#form">Get a quote</a>
@@ -133,9 +164,6 @@
   <hr class="footline"/>
   <div class="copyright">© 2025 RUBYNEST INC.</div>
 </footer>
-
-<!-- ALL YOUR JS (nav, modal, floatbar) — UNCHANGED -->
-<!-- NO ADS ANYWHERE -->
 
 </body>
 </html>
